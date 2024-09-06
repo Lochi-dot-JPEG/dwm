@@ -30,18 +30,18 @@ install: all
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	mkdir -p /usr/share/xsessions/
 	test -f /usr/share/xsessions/dwm.desktop || install -Dm644 dwm.desktop /usr/share/xsessions/
-	mkdir -p release
-	cp -f dwm release/
-	tar -czf release/dwm-${VERSION}.tar.gz -C release dwm
+	#mkdir -p release
+	#cp -f dwm release/
+	#tar -czf release/dwm-${VERSION}.tar.gz -C release dwm
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1\
 		${DESTDIR}${PREFIX}/share/xsession/dwm.desktop
 
-release: dwm
-	mkdir -p release
-	cp -f dwm release/
-	tar -czf release/dwm-${VERSION}.tar.gz -C release dwm
+#release: dwm
+#	mkdir -p release
+#	cp -f dwm release/
+#	tar -czf release/dwm-${VERSION}.tar.gz -C release dwm
 
-.PHONY: all clean install uninstall release
+.PHONY: all clean install uninstall

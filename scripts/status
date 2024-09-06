@@ -14,7 +14,7 @@ update_memory() {
 }
 
 update_time() {
-  time=$(date "+%b %d %H:%M ")
+  time=$(date "+%b %d %I:%M ")
 }
 
 update_weather() {
@@ -34,7 +34,9 @@ update_bat() {
 }
 
 update_vol() {
-  vol="奄 $(pactl list sinks | awk '/Volume:/ {print $5}' | head -n 1 | tr -d '%')%"
+  SINK=$( pactl list short sinks | sed -e 's,^\([0-9][0-9]*\)[^0-9].*,\1,' | head -n 1 )
+  vol=$( pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+  #vol="󰕾 $(pactl list sinks | awk '/Volume:/ {print $5}' | head -n 1 | tr -d '%')%"
 }
 
 update_backlight() {
@@ -48,8 +50,8 @@ update_backlight() {
 # Display function
 display() {
   status=""
-  [[ -n "$bat" ]] && status+="$bat "
-  [[ -n "$backlight" ]] && status+="$backlight "
+  #[[ -n "$bat" ]] && status+="$bat "
+  #[[ -n "$backlight" ]] && status+="$backlight "
   [[ -n "$vol" ]] && status+="$vol "
   [[ -n "$time" ]] && status+="$time"
   xsetroot -name "$status"
@@ -68,7 +70,7 @@ update_backlight
 while true; do
   sleep 1
   sec=$((sec + 1))
-  case $((sec % 60)) in
+  case $((sec % 10)) in
     0) update_bat;;
     [1-5]) 
       update_time
