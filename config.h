@@ -55,7 +55,7 @@ static const char *const autostart[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "󰝚", "󰊖", "", "", "" };
+static const char *tags[] = { "󰝚", "󰭹", "", "", "" };
 
 static const char ptagf[] = "[%s %s]";  /* format of a tag label */
 static const char etagf[] = "[%s]";     /* format of an empty tag */
@@ -125,7 +125,7 @@ static Key keys[] = {
     { 0,                            XF86XK_AudioMute,          spawn,          SHCMD ("playerctl pause")},
     { 0,                            XF86XK_AudioNext,          spawn,          SHCMD ("playerctl next")},
     { 0,                            XF86XK_AudioPrev,          spawn,          SHCMD ("playerctl previous")},
-    { MODKEY|ALTKEY,             XK_b,                      togglebar,      {0} },
+    { MODKEY|ALTKEY,             XK_t,                      togglebar,      {0} },
     { MODKEY,                       XK_j,                      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,                      focusstack,     {.i = -1 } },
     { MODKEY|ALTKEY,             XK_j,                      movestack,      {.i = +1 } },
