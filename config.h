@@ -51,6 +51,9 @@ static const char *const autostart[] = {
 	"picom", NULL,
 	"aw-qt", NULL,
 	"slstatus", NULL,
+	"sh", "-c", "xset r rate 200 30", NULL, // Key repeat rate
+	"sh", "-c", "setxkbmap -option 'caps:ctrl_modifier'", NULL, // caps to ctrl
+	"sh", "-c", "xcape -e 'Caps_Lock=Escape' -t 200", NULL, // ctrl to escape when tapped
     NULL /* terminate */
 };
 
