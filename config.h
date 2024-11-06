@@ -39,8 +39,8 @@ static const char col_surface0[]    = "#313244";
 static const char col_text[]    = "#cdd6f4";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_text, col_base, col_mantle},
-	[SchemeSel]  = { col_text, col_surface0,  col_flamingo },
+	[SchemeNorm] = { col_text, col_crust, col_mantle},
+	[SchemeSel]  = { col_text, col_mantle,  col_flamingo },
 };
 
 static const char *const autostart[] = {
@@ -169,12 +169,12 @@ static Key keys[] = {
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
     /* click                event mask      button          function        argument */
-    { ClkTagBar,            ALTKEY,         Button1,        tag,            {0} },
-    { ClkTagBar,            ALTKEY,         Button3,        toggletag,      {0} },
-    { ClkClientWin,         ALTKEY,         Button1,        moveorplace,    {.i = 2} },
-    { ClkClientWin,         ALTKEY,         Button3,        resizemouse,    {0} },
+    { ClkTagBar,            ALTKEY|ShiftMask,         Button1,        tag,            {0} },
+    { ClkTagBar,            ALTKEY|ShiftMask,         Button3,        toggletag,      {0} },
+    { ClkClientWin,         ALTKEY|ShiftMask,         Button1,        moveorplace,    {.i = 2} },
+    { ClkClientWin,         ALTKEY|ShiftMask,         Button3,        resizemouse,    {0} },
     { ClkTagBar,            0,              Button1,        view,           {0} },
     { ClkTagBar,            0,              Button3,        toggleview,     {0} },
-    { ClkTagBar,            ALTKEY,         Button1,        tag,            {0} },
-    { ClkTagBar,            ALTKEY,         Button3,        toggletag,      {0} },
+    { ClkTagBar,            ALTKEY|ShiftMask,         Button1,        tag,            {0} },
+    { ClkTagBar,            ALTKEY|ShiftMask,         Button3,        toggletag,      {0} },
 };
